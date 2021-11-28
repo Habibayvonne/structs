@@ -1,0 +1,46 @@
+package main
+
+import "fmt"
+
+type Shape struct {
+	Width  int
+	Height int
+	Length int
+	volume int
+	Area   int
+}
+
+func (s *Shape) Printlength() {
+	fmt.Printf("----Method -- Length: %d\n", s.Length)
+}
+func (s *Shape) Printvolume() {
+	s.volume = s.Width * s.Length * s.Height
+
+	fmt.Printf("Method ...volume : %d\n", s.volume)
+}
+func (s *Shape) PrintArea() {
+	s.Area = s.Length * s.Width
+	fmt.Printf("=== Method Area: %d\n", s.Area)
+}
+
+func main() {
+	var shape1 = Shape{
+		Width:  23,
+		Height: 15,
+		Length: 23,
+	}
+
+	shape1.Printlength()
+	shape1.Printvolume()
+	shape1.PrintArea()
+
+	var shape2 = Shape{
+		Length: 14,
+		Height: 11,
+		Width:  8,
+	}
+	fmt.Println(shape2.Width, shape2.Length)
+	shape2.Printlength()
+	shape2.Printvolume()
+	shape2.PrintArea()
+}
